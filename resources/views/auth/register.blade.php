@@ -97,12 +97,6 @@
                                 <div class="form-group">
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Konfirmasi Password" required autocomplete="new-password">
                                 </div>
-                                <div class="form-group">
-                                    <div class="custom-control custom-checkbox small">
-                                        <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                        <label class="custom-control-label" for="customCheck">Ingat Saya</label>
-                                    </div>
-                                </div>
                                 <button type="Submit" style="background-color: #f0ad4e; border-color: #f0ad4e;" class="btn btn-primary btn-block">
                                     Daftar
                                 </button>
