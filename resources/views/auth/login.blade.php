@@ -5,7 +5,7 @@
 
     <div class="col-lg-5">
 
-        <div class="card o-hidden border-0 shadow-lg mt-5">
+        <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
@@ -33,7 +33,7 @@
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox small">
                                         <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                        <label class="custom-control-label" for="customCheck">Ingat Saya</label>
+                                        <label class="custom-control-label" for="remember">Ingat Saya</label>
                                     </div>
                                 </div>
                                 <button type="submit" style="background-color: #f0ad4e; border-color: #f0ad4e;" class="btn btn-primary btn-block">
@@ -42,10 +42,10 @@
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="{{url('/password/reset')}}">Lupa Password?</a>
+                                <a class="h7 text-decoration-none" href="{{url('/password/reset')}}">Lupa Password?</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="{{url('/register')}}">Daftar!</a>
+                                <a class="h7 text-decoration-none" href="{{url('/register')}}">Daftar!</a>
                             </div>
                         </div>
                     </div>

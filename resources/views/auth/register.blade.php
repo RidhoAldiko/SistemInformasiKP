@@ -101,9 +101,15 @@
                                     Daftar
                                 </button>
                             </form>
-                            <div class="text-center mt-2">
-                                <a class="small" href="{{url('/login')}}">Sudah Punya Akun ?</a>
+                            <div class="text-center my-3 ">
+                                <a class="h7 text-decoration-none" href="{{url('/login')}}">Sudah Punya Akun ?</a>
+                                
                             </div>
+                            {{-- <div class="text-center mt-2">
+                                <a href="{{url('/')}}" class="h7 my-4"><i class="fas fa-arrow-left"></i> Kembali Ke Home</a>
+                            </div> --}}
+                            
+                            
                         </div>
                     </div>
                 </div>
