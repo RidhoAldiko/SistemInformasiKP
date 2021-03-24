@@ -48,7 +48,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                    </div>
+                                </div>
 
                                 <div class="form-group">
                                     <input type="number" class="form-control @error('npm') is-invalid @enderror" name="npm" id="npm" placeholder="NPM" value="{{old('npm')}}" required>

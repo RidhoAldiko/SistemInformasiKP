@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\DosenController;
+use App\Http\Controllers\DospemController;
 use App\Http\Controllers\OperatorController;
 use App\Http\Controllers\HomeController;
 
@@ -29,16 +30,17 @@ Route::prefix('operator')
     ->middleware(['auth','operator',])
     ->group(function() {
         Route::get('/', [OperatorController::class, 'index'])->name('operator');
+        Route::resource('dospem',DospemController::class);
 });
 
 Route::prefix('mahasiswa')
-    ->middleware(['auth','mahasiswa',])
+    ->middleware(['auth','mahasiswa','verified'])
     ->group(function() {
         Route::get('/', [MahasiswaController::class, 'index'])->name('mahasiswa');
     });
 
 Route::prefix('dosen')
-    ->middleware(['auth','dosen',])
+    ->middleware(['auth','dosen','verified'])
     ->group(function() {
         Route::get('/', [DosenController::class, 'index'])->name('dosen');
     });
