@@ -17,16 +17,12 @@ class RedirectIfAuthenticated
      * @param  string|null  ...$guards
      * @return mixed
      */
-    public function handle(Request $request, Closure $next, ...$guards)
+    public function handle($request, Closure $next, $guard = null)
     {
-        $guards = empty($guards) ? [null] : $guards;
+        if (Auth::guard($guard)->check() && Auth::user()->level == 0) { return redirect('/operator'); }
+        else if (Auth::guard($guard)->check() && Auth::user()->level == 1) { return redirect('/dosen'); }
+        else if (Auth::guard($guard)->check() && Auth::user()->level == 2) { return redirect('/mahasiswa'); }
+        else{ return $next($request); }
 
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
-            }
-        }
-
-        return $next($request);
     }
 }

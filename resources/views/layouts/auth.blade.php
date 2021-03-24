@@ -21,13 +21,13 @@
 <!-- Custom styles for this template-->
 <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 <style>
-    body {
+    .bg-green {
         background-image: linear-gradient(120deg, rgb(46, 204, 113) 55%, rgb(0, 177, 106) 55%);
     }
 </style>
 </head>
 
-<body>
+<body class="bg-green">
 
     <!-- content -->
 <div class="container">

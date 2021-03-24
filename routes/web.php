@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PagesController;
+use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\DosenController;
+use App\Http\Controllers\OperatorController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +23,23 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::prefix('operator')
+    ->middleware(['auth','operator',])
+    ->group(function() {
+        Route::get('/', [OperatorController::class, 'index'])->name('operator');
+});
+
+Route::prefix('mahasiswa')
+    ->middleware(['auth','mahasiswa',])
+    ->group(function() {
+        Route::get('/', [MahasiswaController::class, 'index'])->name('mahasiswa');
+    });
+
+Route::prefix('dosen')
+    ->middleware(['auth','dosen',])
+    ->group(function() {
+        Route::get('/', [DosenController::class, 'index'])->name('dosen');
+    });
+
