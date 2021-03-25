@@ -21,7 +21,7 @@ class DospemController extends Controller
     public function index()
     {
         $results = Dosen::with('user')->get();
-        return view('operator.Dospem',compact('results'));
+        return view('operator.dospem.dospem',compact('results'));
     }
 
     /**
@@ -31,7 +31,7 @@ class DospemController extends Controller
      */
     public function create()
     {
-        return view('operator.Dospem_add');
+        return view('operator.dospem.dospem_add');
     }
 
     /**
@@ -89,7 +89,8 @@ class DospemController extends Controller
      */
     public function edit($nid)
     {
-        dd($nid);
+        $results = Dosen::findOrFail($nid);
+        return view('operator.dospem.dospem_edit',compact('results'));
     }
 
     /**
@@ -99,9 +100,34 @@ class DospemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $nid)
     {
-        //
+        $this->validate($request, [
+            // unique:dosen merupakan nama table, email dosen merupakan kondisi yang diinginkan berdasakrak $id yang di peroleh dari request
+            // email_dosen terakhir adalah pk dari table tersebut
+            'email_dosen' => ['string', 'email', 'max:255', 'unique:dosen,email_dosen,'.$nid.',nid']
+        ]);
+
+        $data = $request->all();
+
+        $dosen = Dosen::findOrFail($nid);
+        // $user = DB::table('users')->where('email', $dosen->email_dosen)->get();
+        $user = User::where('email',$dosen->email_dosen);
+
+        $data['flag']=(int)$request->get('flag');//merubah tipe data selectbox
+
+        $dosen->update($data);
+        // jika data dosen berhasil update, maka update data dosen yang ada ditable user
+        if ($dosen) {
+            $user->update([
+                'email' => $data['email_dosen'],
+                'flag' => $data['flag'],
+            ]);
+            // if ($user)  {
+            //     Mail::to($data['email_dosen'])->send(new DosenEmail());
+            // }
+            return redirect()->route('dospem.index')->with('status','Data Berhasil Diubah');
+        }
     }
 
     /**

@@ -80,19 +80,23 @@
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Ingin Keluar?</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <div class="modal-header justify-content-center">
+                <h5 class="modal-title h5" id="exampleModalLabel">Ingin Keluar?</h5>
+                {{-- <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
-                </button>
+                </button> --}}
             </div>
-            <div class="modal-body">Tekan "Logout" jika Anda siap untuk mengakhiri sesi Anda saat ini.</div>
-            <div class="modal-footer">
-                <form action="{{url('logout')}}" method="post">
-                    @csrf
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <div class="modal-body">
+                <h4 class="h5 text-center alert-text">Tekan "Logout" jika Anda siap untuk mengakhiri sesi Anda saat ini.</h4> 
+
+                <div class="modal-footer d-flex justify-content-center">
+                    <form action="{{url('logout')}}" method="post">
+                        @csrf
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                     <button style="background-color: #f0ad4e; border-color: #f0ad4e;" class="btn btn-primary" type="submit">Logout</button>
-                </form>
+                    </form>
+                    
+                </div>
             </div>
             </div>
         </div>

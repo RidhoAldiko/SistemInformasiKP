@@ -1,11 +1,11 @@
 <ul class="navbar-nav bg-green sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        {{-- <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-        </div> --}}
-        <div class="sidebar-brand-text mx-3">KERJA PRAKTEK</div>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+        <div class="sidebar-brand-icon">
+            <i class="fas fa-microscope"></i>
+        </div>
+        <div class="sidebar-brand-text mx-2">KERJA PRAKTEK</div>
     </a>
 
     <!-- Divider -->
@@ -23,16 +23,43 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-user-graduate"></i>
-            <span><b> Dosen</b></span>
+            <span class="pl-1">Dosen</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse {{set_show(['dospem.index','dospem.create'])}}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Menu:</h6>
-                <a class="collapse-item" href="{{route('dospem.index')}}"><b>Data Dosen</b></a>
-                <a class="collapse-item" href="{{route('dospem.create')}}"><b>Tambah Dosen</b></a>
+                <a class="collapse-item {{set_active('dospem.index')}}" href="{{route('dospem.index')}}">Data Dosen</a>
+                <a class="collapse-item {{set_active('dospem.create')}}" href="{{route('dospem.create')}}">Tambah Dosen</a>
             </div>
         </div>
     </li>
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#konsentrasi"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-list"></i>
+            <span class="pl-1">Konsentrasi</span>
+        </a>
+        <div id="konsentrasi" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Menu:</h6>
+                <a class="collapse-item" href="#">Data Konsentrasi</a>
+                <a class="collapse-item" href="#">Tambah Konsentrasi</a>
+            </div>
+        </div>
+    </li>
+    <hr class="sidebar-divider my-0">
+    <li class="nav-item {{set_active('operator')}} ">
+        <a class="nav-link " href="{{route('operator')}}">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Mahasiswa</span></a>
+    </li>
+    <hr class="sidebar-divider">
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+    
     @endif
 
     <!-- Nav Item - Dashboard mahasiswa -->
