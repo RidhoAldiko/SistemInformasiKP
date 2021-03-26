@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\KonsentrasiController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\DospemController;
 use App\Http\Controllers\OperatorController;
@@ -31,6 +32,7 @@ Route::prefix('operator')
     ->group(function() {
         Route::get('/', [OperatorController::class, 'index'])->name('operator');
         Route::resource('dospem',DospemController::class);
+        Route::resource('konsentrasi',KonsentrasiController::class);
 });
 
 Route::prefix('mahasiswa')

@@ -29,7 +29,7 @@
                                     <img src="{{asset('img/'.$results->foto)}}" class="rounded-circle shadow" alt="Profil" width="100px">
                                 </a>
                             @endif
-                            <h4 class="mt-2 text-primary font-weight-bold">Foto Dosen</h4>
+                            <h4 class="mt-2 text-primary font-weight-bold">{{$results->nm_dosen}}</h4>
                         </div>
                     </div>
                     <form class="form-horizontal" method="POST" action="{{route('dospem.update',$results->nid)}}" enctype="multipart/form-data">

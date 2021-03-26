@@ -1,9 +1,22 @@
 @extends('layouts.main')
 @section('title','Tambah Dosen')
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb justify-content-end">
+        <li class="breadcrumb-item active" aria-current="page">Dosen </li>
+    </ol>
+</nav>
 @if (session('status'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     {{ session('status') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
+@if (session('error'))
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ session('error') }}
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
     </button>
@@ -15,7 +28,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="text-gray-800 table table-bordered table-hover table-striped" id="dataTableDosen" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -43,7 +56,7 @@
                 <tbody>
                     @foreach ($results as $result)
                     <tr>
-                        <td>1</td>
+                        <td>{{$loop->iteration}}</td>
                         <td>{{$result->nid}}</td>
                         <td>{{$result->nm_dosen}}</td>
                         <td>{{$result->email_dosen}}</td>
@@ -65,7 +78,7 @@
                                 @endif
                         </td>
                         <td class="text-center">
-                            <a href="{{route('dospem.edit',$result->nid)}}" class="btn btn-warning btn-sm" title="Edit"><i class="fa fa-pencil-alt"></i></a>
+                            <a href="{{route('dospem.edit',$result->nid)}}" class="btn btn-warning btn-sm text-white" title="Edit"><i class="fa fa-pencil-alt"></i>Ubah</a>
                         </td>
                     </tr>
                     @endforeach
