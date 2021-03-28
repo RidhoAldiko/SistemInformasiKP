@@ -15,7 +15,7 @@
             <div class="card-body">
                 <div class="row justify-content-center">
                     <div class="col-md-8 ">
-                        <form method="POST" action="{{route('proposal.store')}}" >
+                        <form method="POST" action="{{route('proposal.store')}}" enctype="multipart/form-data" >
                             @csrf
                             <div class="form-group">
                                 <input type="text" class="form-control  @error('judul') is-invalid @enderror" id="judul" name="judul" value="{{old('judul')}}" placeholder="Judul Kerja Praktek" required>

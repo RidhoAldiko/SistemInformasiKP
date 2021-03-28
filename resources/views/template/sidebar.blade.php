@@ -65,7 +65,7 @@
     <!-- Nav Item - Dashboard mahasiswa -->
     @if (Auth::user()->level==2)
     <li class="nav-item {{set_active('mahasiswa')}} ">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="{{route('mahasiswa')}}">
             <i class="fas fa-fw fa-home"></i>
             <span><b>Beranda</b></span></a>
     </li>
@@ -79,7 +79,7 @@
         <div id="collapseTwo" class="collapse {{set_show(['proposal.index','proposal.create','proposal.edit'])}}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Menu:</h6>
-                <a class="collapse-item {{set_active('proposal.index')}}" href="buttons.html"><b>Data Proposal</b></a>
+                <a class="collapse-item {{set_active('proposal.index')}}" href="{{route('proposal.index')}}"><b>Data Proposal</b></a>
                 <a class="collapse-item {{set_active('proposal.create')}}" href="{{route('proposal.create')}}"><b>Pengajuan Proposal</b></a>
             </div>
         </div>
