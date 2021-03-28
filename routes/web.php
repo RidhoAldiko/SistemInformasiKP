@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\ProposalController;
 use App\Http\Controllers\KonsentrasiController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\DospemController;
@@ -40,12 +41,16 @@ Route::prefix('operator')
         Route::get('/data-mahasiswa', [OperatorController::class, 'data_mahasiswa'])->name('data-mahasiswa');
         Route::get('/data-mahasiswa/edit/{email}', [OperatorController::class, 'edit_mahasiswa'])->name('edit-mahasiswa');
         Route::put('/data-mahasiswa/{email}', [OperatorController::class, 'update_mahasiswa'])->name('update-mahasiswa');
-});
+    });
+
 
 Route::prefix('mahasiswa')
     ->middleware(['auth','mahasiswa','verified'])
     ->group(function() {
         Route::get('/', [MahasiswaController::class, 'index'])->name('mahasiswa');
+        //Mahasiswa proposal
+        Route::resource('proposal',ProposalController::class);
+
     });
 
 Route::prefix('dosen')

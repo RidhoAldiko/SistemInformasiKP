@@ -70,17 +70,17 @@
             <span><b>Beranda</b></span></a>
     </li>
 
-    <li class="nav-item">
+    <li class="nav-item {{set_active(['proposal.index','proposal.create','proposal.edit'])}}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-paste"></i>
             <span><b> Proposal</b></span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse {{set_show(['proposal.index','proposal.create','proposal.edit'])}}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Menu:</h6>
-                <a class="collapse-item" href="buttons.html"><b>Data Proposal</b></a>
-                <a class="collapse-item" href="cards.html"><b>Pengajuan Proposal</b></a>
+                <a class="collapse-item {{set_active('proposal.index')}}" href="buttons.html"><b>Data Proposal</b></a>
+                <a class="collapse-item {{set_active('proposal.create')}}" href="{{route('proposal.create')}}"><b>Pengajuan Proposal</b></a>
             </div>
         </div>
     </li>
