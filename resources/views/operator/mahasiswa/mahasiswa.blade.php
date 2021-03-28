@@ -1,10 +1,10 @@
 @extends('layouts.main')
-@section('title','Konsentrasi')
+@section('title','Mahasiswa')
 @section('content')
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb justify-content-end">
-        <li class="breadcrumb-item active" aria-current="page">Konsentrasi</li>
+        <li class="breadcrumb-item active" aria-current="page">Mahasiswa</li>
     </ol>
 </nav>
 @if (session('status'))
@@ -25,7 +25,7 @@
 @endif
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Data Konsentrasi</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Data Mahasiswa</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -33,7 +33,12 @@
                 <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama Konsentrasi</th>
+                    <th>NPM</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Konsentrasi</th>
+                    <th>Tanggal Daftar</th>
+                    <th>No. HP</th>
                     <th>Status</th>
                     <th class="text-center">Aksi</th>
                 </tr>
@@ -41,7 +46,12 @@
                 <tfoot>
                 <tr>
                     <th>No</th>
-                    <th>Nama Konsentrasi</th>
+                    <th>NPM</th>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Konsentrasi</th>
+                    <th>Tanggal Daftar</th>
+                    <th>No. HP</th>
                     <th>Status</th>
                     <th class="text-center">Aksi</th>
                 </tr>
@@ -50,16 +60,21 @@
                 @foreach ($results as $item)
                 <tr>
                     <td>{{$loop->iteration}}</td>
+                    <td>{{$item->npm}}</td>
+                    <td>{{$item->nm_mhs}}</td>
+                    <td>{{$item->email_mhs}}</td>
                     <td>{{$item->nama_konsentrasi}}</td>
+                    <td>{{ date('d-m-Y',strtotime($item->created_at))}}</td>
+                    <td>{{$item->nohp}}</td>
                     <td>
-                        @if ($item->status == 0)
+                        @if ($item->flag == 0)
                             Aktif
-                        @elseif ($item->status == 1)
+                        @elseif ($item->flag == 1)
                             Nonaktif
                         @endif
                     </td>
                     <td class="text-center">
-                        <a href="{{route('konsentrasi.edit',$item->id_konsentrasi)}}" class="btn btn-warning btn-sm text-white" title="Edit"><i class="fa fa-pencil-alt"> Ubah</i></a>
+                        <a href="{{route('edit-mahasiswa',$item->npm)}}" class="btn btn-warning btn-sm text-white" title="Edit"><i class="fa fa-pencil-alt"></i></a>
                     </td>
                 </tr>
                 @endforeach

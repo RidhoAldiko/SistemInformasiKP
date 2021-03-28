@@ -24,7 +24,7 @@ class KonsentrasiController extends Controller
      */
     public function create()
     {
-        //
+        return view('operator.konsentrasi.konsentrasi_add');
     }
 
     /**
@@ -35,7 +35,18 @@ class KonsentrasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'nama_konsentrasi' => ['string', 'max:70', 'unique:konsentrasi'],
+            'status' => 'required',
+            ]);
+        $data = $request->all();
+        $data['nama_konsentrasi'] = ucwords(strtolower($data['nama_konsentrasi']));
+        $konsen = Konsentrasi::create($data);
+        if ($konsen) {
+            return redirect()->route('konsentrasi.index')->with('status',"Data Berhasil Ditambah");
+        }else{
+            return back()->withInput()->with('error',"Data Gagal Ditambah");
+        }
     }
 
     /**
@@ -57,7 +68,8 @@ class KonsentrasiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $results = Konsentrasi::findOrFail($id);
+        return view('operator.konsentrasi.konsentrasi_edit',compact(['results']));
     }
 
     /**
@@ -69,7 +81,17 @@ class KonsentrasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'nama_konsentrasi' => ['string', 'max:70', 'unique:konsentrasi,nama_konsentrasi,'.$id.',id_konsentrasi'],
+            'status' => 'required'
+            ]);
+        $data = $request->all();
+        $data['nama_konsentrasi'] = ucwords(strtolower($data['nama_konsentrasi']));
+        $konsentrasi = Konsentrasi::findOrFail($id);
+        $data['status']=(int)$request->get('status');//merubah tipe data selectbox
+        // dd($data);
+        $konsentrasi->update($data);
+        return redirect()->route('konsentrasi.index')->with('status',"Data Berhasil Diperbarui");
     }
 
     /**

@@ -30,9 +30,16 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::prefix('operator')
     ->middleware(['auth','operator',])
     ->group(function() {
+        //operator dashboard
         Route::get('/', [OperatorController::class, 'index'])->name('operator');
+        //operator dosen Pembimbing
         Route::resource('dospem',DospemController::class);
+        //operator konsentrasi
         Route::resource('konsentrasi',KonsentrasiController::class);
+        //operator data mahasiswa
+        Route::get('/data-mahasiswa', [OperatorController::class, 'data_mahasiswa'])->name('data-mahasiswa');
+        Route::get('/data-mahasiswa/edit/{email}', [OperatorController::class, 'edit_mahasiswa'])->name('edit-mahasiswa');
+        Route::put('/data-mahasiswa/{email}', [OperatorController::class, 'update_mahasiswa'])->name('update-mahasiswa');
 });
 
 Route::prefix('mahasiswa')

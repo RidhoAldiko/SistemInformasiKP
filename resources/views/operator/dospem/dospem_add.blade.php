@@ -5,7 +5,7 @@
     <div class="col-md-10">
         <nav aria-label="breadcrumb ">
             <ol class="breadcrumb justify-content-end">
-                {{-- <li class="breadcrumb-item"><a href="{{route('dospem.index')}}">Data Dosen</a></li> --}}
+                <li class="breadcrumb-item"><a href="{{route('dospem.index')}}">Data Dosen</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Tambah Data Dosen</li>
             </ol>
         </nav>

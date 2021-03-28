@@ -44,13 +44,13 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Menu:</h6>
                 <a class="collapse-item {{set_active(['konsentrasi.index','konsentrasi.edit'])}}" href="{{route('konsentrasi.index')}}">Data Konsentrasi</a>
-                <a class="collapse-item" href="#">Tambah Konsentrasi</a>
+                <a class="collapse-item {{set_active(['konsentrasi.create'])}}" href="{{route('konsentrasi.create')}}">Tambah Konsentrasi</a>
             </div>
         </div>
     </li>
     <hr class="sidebar-divider my-0">
-    <li class="nav-item {{set_active('mahasiswa')}} ">
-        <a class="nav-link " href="#">
+    <li class="nav-item {{set_active(['data-mahasiswa','edit-mahasiswa'])}} ">
+        <a class="nav-link " href="{{route('data-mahasiswa')}}">
             <i class="fas fa-fw fa-users"></i>
             <span>Mahasiswa</span></a>
     </li>
