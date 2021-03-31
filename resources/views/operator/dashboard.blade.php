@@ -1,6 +1,11 @@
 @extends('layouts.main')
 @section('title','Dashboard Operator')
 @section('content')
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb justify-content-end">
+        <li class="breadcrumb-item active" aria-current="page">Beranda</li>
+    </ol>
+</nav>
 <div class="row">
     <!-- Earnings (Monthly) Card Example -->
     <div class="col-xl-4 col-md-6 mb-4">

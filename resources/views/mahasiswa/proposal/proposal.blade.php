@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title','Tambah Dosen')
+@section('title','Proposal')
 @section('content')
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb justify-content-end">
@@ -7,31 +7,46 @@
     </ol>
 </nav>
 @if (session('status'))
-<div class="alert alert-success" role="alert">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
     {{ session('status') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
 </div>
 @endif
 @if (session('error'))
-<div class="alert alert-danger" role="alert">
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
     {{ session('error') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
 </div>
 @endif
 @if (count($proposal) > 0)
 @if ($proposal[0]->status == 2)
-    <div class="alert alert-danger" role="alert">
-        <span class="font-weight-bold"><i class="fas fa-exclamation-circle"></i> Pengajuan Proposal KP Anda Ditolak. Silahkan Lengkapi seluruh dokumen yang dibutuhkan, Lalu Ajukan Ulang Proposal KP Anda.</span>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Proposal KP Anda Ditolak. Silahkan Lengkapi seluruh dokumen yang dibutuhkan, Lalu Ajukan Ulang Proposal KP Anda.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 @elseif($proposal[0]->status == 4)
-    <div class="alert alert-warning" role="alert">
-        <span class="font-weight-bold"><i class="fas fa-exclamation-circle"></i> Proposal KP anda terkena revisi. silahkan perbaiki proposal anda, Lalu Ajukan Ulang proposal KP.</span>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Proposal KP anda terkena revisi. silahkan perbaiki proposal anda, Lalu Ajukan Ulang proposal KP.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 @endif
 @endif
 @if($ending == true)
 @if ($ending->status == 3 || $ending->status == 5)
     @empty($berkas[0]->nm_berkas)
-        <div class="alert alert-info" role="alert">
-            <span class="font-weight-bold"><i class="fas fa-exclamation-circle"></i> Silahkan Upload Sk Kerja Praktek Terlebih Dahulu Sebelum Memulai Bimbingan. Klik Menu SK KP > Upload SK</span>
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+            Upload Sk Kerja Praktek Terlebih Dahulu Sebelum Memulai Bimbingan. Klik Menu SK KP > Upload SK
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
         </div>
     @endempty
 @endif
@@ -42,7 +57,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="text-gray-800 table table-bordered table-hover table-striped" id="dataTableDosen" width="100%" cellspacing="0">
+            <table class="text-gray-800 table table-bordered table-hover table-striped" id="dataProposalMhs" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -85,11 +100,11 @@
                                 @endif
                             </td>
                             <td class="text-center">
-                                <a href="#" class="btn btn-info btn-sm" title="Detail">
+                                <a href="{{route('proposal.show',$item->id_proposal)}}" class="btn btn-info btn-sm" title="Detail">
                                     <i class="fa fa-eye"></i>
                                 </a>
                                 @if ($item->status == 0)
-                                <a href="#" class="btn btn-warning btn-sm" title="Edit">
+                                <a href="{{route('proposal.edit',$item->id_proposal)}}" class="btn btn-warning btn-sm" title="Edit">
                                     <i class="fa fa-pencil-alt"></i>
                                 </a>
                                 @endif

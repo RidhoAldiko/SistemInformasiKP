@@ -29,7 +29,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="text-gray-800 table table-bordered table-hover table-striped" id="dataTableKonsentrasi" width="100%" cellspacing="0">
+            <table class="text-gray-800 table table-bordered table-hover table-striped" id="dataTableMahasiswa" width="100%" cellspacing="0">
                 <thead>
                 <tr>
                     <th>No</th>

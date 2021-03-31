@@ -78,7 +78,7 @@
                                 @endif
                         </td>
                         <td class="text-center">
-                            <a href="{{route('dospem.edit',$result->nid)}}" class="btn btn-warning btn-sm text-white" title="Edit"><i class="fa fa-pencil-alt"></i>Ubah</a>
+                            <a href="{{route('dospem.edit',$result->nid)}}" class="btn btn-warning btn-sm text-white" title="Edit"><i class="fa fa-pencil-alt"></i></a>
                         </td>
                     </tr>
                     @endforeach

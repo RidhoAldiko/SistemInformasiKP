@@ -27,20 +27,27 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+//route level operator
 Route::prefix('operator')
     ->middleware(['auth','operator',])
     ->group(function() {
-        //operator dashboard
+        //route dashboard
         Route::get('/', [OperatorController::class, 'index'])->name('operator');
-        //operator dosen Pembimbing
+        //route dosen Pembimbing
         Route::resource('dospem',DospemController::class);
-        //operator konsentrasi
+        //route konsentrasi
         Route::resource('konsentrasi',KonsentrasiController::class);
-        //operator data mahasiswa
+        //route data mahasiswa
         Route::get('/data-mahasiswa', [OperatorController::class, 'data_mahasiswa'])->name('data-mahasiswa');
         Route::get('/data-mahasiswa/edit/{email}', [OperatorController::class, 'edit_mahasiswa'])->name('edit-mahasiswa');
         Route::put('/data-mahasiswa/{email}', [OperatorController::class, 'update_mahasiswa'])->name('update-mahasiswa');
+        //route proposal
+        Route::get('/proposal', [OperatorController::class, 'proposal'])->name('proposal');
+        Route::get('/proposal/beri-pembimbing/{id}', [OperatorController::class, 'beri_pembimbing'])->name('beri-pembimbing');
+        Route::post('/proposal/beri-pembimbing/{id}/store', [OperatorController::class, 'store_pembimbing'])->name('beri-pembimbing.create');
+        Route::get('/proposal/tolak-proposal/{id}/tolak', [OperatorController::class, 'tolak_proposal'])->name('proposal.tolak');
+        Route::get('/proposalserverside', [OperatorController::class, 'serverProposal'])->name('operator.serverPro');
+        Route::get('/riwayat-proposal', [OperatorController::class, 'riwayat_proposal'])->name('proposal.riwayat');
     });
 
 

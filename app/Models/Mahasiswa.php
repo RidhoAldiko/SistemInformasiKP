@@ -26,4 +26,17 @@ class Mahasiswa extends Model
     {
         return $this->belongsTo(Konsentrasi::class,'id_konsentrasi','id_konsentrasi');
     }
+
+    public function proposal()
+    {
+        // parameter 1 untuk menghubungkan ke model proposal
+        // parameter 2 merupakan foreign key dari table proposal
+        // parameter 3 merupakan primary key dari table mahasiswa
+        return $this->hasMany(Proposal::class,'npm','npm');
+    }
+
+    public function berkas()
+    {
+        return $this->hasMany(Berkas::class,'npm','npm');
+    }
 }

@@ -55,6 +55,21 @@
             <span>Mahasiswa</span></a>
     </li>
     <hr class="sidebar-divider">
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProposal"
+            aria-expanded="true" aria-controls="collapseProposal">
+            <i class="fas fa-paste"></i>
+            <span><b> Proposal</b></span>
+        </a>
+        <div id="collapseProposal" class="collapse {{set_show(['proposal','proposal.riwayat'])}}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Menu:</h6>
+                <a class="collapse-item {{set_active(['proposal'])}}" href="{{route('proposal')}}"><b>Data Proposal</b></a>
+                <a class="collapse-item {{set_active(['proposal.riwayat'])}}" href="{{route('proposal.riwayat')}}"><b>Riwayat Proposal</b></a>
+            </div>
+        </div>
+    </li>
+    <hr class="sidebar-divider">
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
@@ -70,20 +85,24 @@
             <span><b>Beranda</b></span></a>
     </li>
 
-    <li class="nav-item {{set_active(['proposal.index','proposal.create','proposal.edit'])}}">
+    <li class="nav-item {{set_active(['proposal.index','proposal.create','proposal.edit','proposal.show'])}}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-paste"></i>
             <span><b> Proposal</b></span>
         </a>
-        <div id="collapseTwo" class="collapse {{set_show(['proposal.index','proposal.create','proposal.edit'])}}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseTwo" class="collapse {{set_show(['proposal.index','proposal.create','proposal.edit','proposal.show'])}}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Menu:</h6>
-                <a class="collapse-item {{set_active('proposal.index')}}" href="{{route('proposal.index')}}"><b>Data Proposal</b></a>
+                <a class="collapse-item {{set_active(['proposal.index','proposal.show','proposal.edit'])}}" href="{{route('proposal.index',)}}"><b>Data Proposal</b></a>
                 <a class="collapse-item {{set_active('proposal.create')}}" href="{{route('proposal.create')}}"><b>Pengajuan Proposal</b></a>
             </div>
         </div>
     </li>
+    <hr class="sidebar-divider">
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
     @endif
 <!-- Nav Item - Dashboard Dosen -->
     @if (Auth::user()->level==1)

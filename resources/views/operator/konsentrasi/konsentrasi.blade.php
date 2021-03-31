@@ -59,7 +59,7 @@
                         @endif
                     </td>
                     <td class="text-center">
-                        <a href="{{route('konsentrasi.edit',$item->id_konsentrasi)}}" class="btn btn-warning btn-sm text-white" title="Edit"><i class="fa fa-pencil-alt"> Ubah</i></a>
+                        <a href="{{route('konsentrasi.edit',$item->id_konsentrasi)}}" class="btn btn-warning btn-sm text-white" title="Edit"><i class="fa fa-pencil-alt"></i></a>
                     </td>
                 </tr>
                 @endforeach

@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title','Tambah Dosen')
+@section('title','Proposal')
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-10">
@@ -54,7 +54,7 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control  @error('waktu_kp') is-invalid @enderror" id="waktu_kp" name="waktu_kp" value="{{old('waktu_kp')}}" placeholder="Waktu Pelaksanaan KP (cth:januari 2021)" required>
+                                <input type="text" class="form-control  @error('waktu_kp') is-invalid @enderror" id="waktu_kp" name="waktu_kp" value="{{old('waktu_kp')}}" placeholder="Waktu Pelaksanaan KP (contoh:januari 2021)" required>
                                 @error('waktu_kp')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -63,16 +63,24 @@
                             </div>
 
                             <div class="form-group">
-                                <select class="form-control  @error('id_konsentrasi') is-invalid @enderror" id="id_konsentrasi" name="id_konsentrasi">
+                                <select class="form-control  @error('rekomendasi') is-invalid @enderror" id="rekomendasi" name="rekomendasi">
                                     <option>--- Rekomendasi Dosen ---</option>
-                                    <option>Tidak ada</option>
-                                    @foreach ($results as $result)
-                                        @if ($result->nid != NULL)
-                                            <option value="{{$result->nid}}">{{$result->nm_dosen}}</option>
-                                        @endif
-                                    @endforeach
+                                    <option value="Tidak Ada"
+                                            @if ('Tidak Ada' == old('rekomendasi'))
+                                                selected
+                                            @endif
+                                        >Tidak Ada</option>
+                                        @foreach ($results as $result)
+                                            <option value="{{$result->nm_dosen}}"
+                                                @if ($result->nm_dosen == old('rekomendasi'))
+                                                    selected
+                                                @endif
+                                                >
+                                                {{$result->nm_dosen}}
+                                            </option>
+                                        @endforeach
                                 </select>
-                                @error('id_konsentrasi')
+                                @error('rekomendasi')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
