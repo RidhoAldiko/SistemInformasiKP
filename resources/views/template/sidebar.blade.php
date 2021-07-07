@@ -1,4 +1,4 @@
-<ul class="navbar-nav bg-green sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav  bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
@@ -10,7 +10,7 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
-    
+
     <!-- Nav Item - Dashboard Operator -->
     @if (Auth::user()->level==0)
     <li class="nav-item {{set_active('operator')}} ">
@@ -20,8 +20,7 @@
     </li>
     <hr class="sidebar-divider my-0">
     <li class="nav-item {{set_active(['dospem.index','dospem.create','dospem.edit'])}}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-user-graduate"></i>
             <span class="pl-1">Dosen</span>
         </a>
@@ -35,8 +34,7 @@
     </li>
     <hr class="sidebar-divider my-0">
     <li class="nav-item {{set_active(['konsentrasi.index','konsentrasi.create','konsentrasi.edit'])}}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#konsentrasi"
-            aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#konsentrasi" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-list"></i>
             <span class="pl-1">Konsentrasi</span>
         </a>
@@ -56,8 +54,7 @@
     </li>
     <hr class="sidebar-divider">
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProposal"
-            aria-expanded="true" aria-controls="collapseProposal">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProposal" aria-expanded="true" aria-controls="collapseProposal">
             <i class="fas fa-paste"></i>
             <span><b> Proposal</b></span>
         </a>
@@ -74,7 +71,7 @@
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 
-    
+
     @endif
 
     <!-- Nav Item - Dashboard mahasiswa -->
@@ -86,8 +83,7 @@
     </li>
 
     <li class="nav-item {{set_active(['proposal.index','proposal.create','proposal.edit','proposal.show'])}}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-paste"></i>
             <span><b> Proposal</b></span>
         </a>
@@ -104,7 +100,7 @@
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
     @endif
-<!-- Nav Item - Dashboard Dosen -->
+    <!-- Nav Item - Dashboard Dosen -->
     @if (Auth::user()->level==1)
     <li class="nav-item {{set_active('dosen')}} ">
         <a class="nav-link " href="index.html">
@@ -113,8 +109,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-paste"></i>
             <span><b> Proposal</b></span>
         </a>
@@ -129,6 +124,6 @@
     </li>
     @endif
 
-    
+
 
 </ul>

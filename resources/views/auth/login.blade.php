@@ -12,7 +12,7 @@
                     <div class="col-lg">
                         <div class="px-5 py-3">
                             <div class="text-center">
-                                <a href="#"><img src="{{url('/img/logo-uir.png')}}" class="img-fluid" alt="logo"></a>
+                                <a href="{{url('/')}}"><img src="{{url('/img/logo-uir.png')}}" class="img-fluid" alt="logo"></a>
                                 <h1 class="h4 text-gray-900 "><b>Silahkan masuk</b></h1>
                                 <p>Masuk untuk mengakses halaman dashboard</p>
                             </div>
@@ -20,15 +20,14 @@
                                 @csrf
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" aria-describedby="emailHelp" placeholder="Email" required>
-                                        @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                        id="password" name="password" placeholder="Password" required>
+                                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Password" required>
                                 </div>
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox small">

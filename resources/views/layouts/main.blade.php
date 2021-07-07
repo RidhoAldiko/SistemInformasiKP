@@ -13,24 +13,24 @@
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css" rel="stylesheet">
-    
+
 
 
     <style>
         .bg-green {
             background-image: linear-gradient(120deg, rgb(46, 204, 113) 55%, rgb(0, 177, 106) 55%);
         }
+
         .btn-orange {
-            background-color: #f0ad4e; border-color: #f0ad4e;
+            background-color: #f0ad4e;
+            border-color: #f0ad4e;
         }
     </style>
 </head>
@@ -85,24 +85,24 @@
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-            <div class="modal-header justify-content-center">
-                <h5 class="modal-title h5" id="exampleModalLabel">Ingin Keluar?</h5>
-                {{-- <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <div class="modal-header justify-content-center">
+                    <h5 class="modal-title h5" id="exampleModalLabel">Ingin Keluar?</h5>
+                    {{-- <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
                 </button> --}}
-            </div>
-            <div class="modal-body">
-                <h4 class="h5 text-center alert-text">Tekan "Logout" jika Anda siap untuk mengakhiri sesi Anda saat ini.</h4> 
-
-                <div class="modal-footer d-flex justify-content-center">
-                    <form action="{{url('logout')}}" method="post">
-                        @csrf
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button style="background-color: #f0ad4e; border-color: #f0ad4e;" class="btn btn-primary" type="submit">Logout</button>
-                    </form>
-                    
                 </div>
-            </div>
+                <div class="modal-body">
+                    <h4 class="h5 text-center alert-text">Tekan "Logout" jika Anda siap untuk mengakhiri sesi Anda saat ini.</h4>
+
+                    <div class="modal-footer d-flex justify-content-center">
+                        <form action="{{url('logout')}}" method="post">
+                            @csrf
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                            <button style="background-color: #f0ad4e; border-color: #f0ad4e;" class="btn btn-primary" type="submit">Logout</button>
+                        </form>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
